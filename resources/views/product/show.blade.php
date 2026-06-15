@@ -12,16 +12,12 @@
         </nav>
 
         <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20">
-            <div class="flex justify-center items-start lg:sticky lg:top-28 lg:self-start">
-                <div class="card-elevated w-full max-w-lg overflow-hidden">
-                    <div class="product-image-wrap product-image-wrap--hero">
-                        <img src="{{ $product->image_url }}"
-                            alt="{{ $product->name }}"
-                            class="w-full max-h-[320px] sm:max-h-[400px] lg:max-h-none object-contain"
-                            width="500"
-                            height="500">
-                    </div>
-                </div>
+            <div class="flex justify-center items-start lg:sticky lg:top-28 lg:self-start w-full max-w-lg">
+                <img src="{{ $product->image_url }}"
+                    alt="{{ $product->name }}"
+                    class="w-full object-contain"
+                    width="500"
+                    height="500">
             </div>
 
             <div>

@@ -2,7 +2,7 @@
     $cartCount = app(\App\Services\CartService::class)->count();
 @endphp
 
-<header class="sticky top-0 z-50 bg-cream/95 backdrop-blur-md border-b border-gold/10">
+<header id="site-top" class="sticky top-0 z-50 bg-cream/95 backdrop-blur-md border-b border-gold/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16 lg:h-20">
             <a href="{{ route('home') }}" class="flex items-center gap-2.5 sm:gap-3 group min-w-0">

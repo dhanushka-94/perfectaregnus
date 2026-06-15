@@ -28,7 +28,6 @@ class ProductController extends Controller
             'stock' => 'required|integer|min:0',
             'is_active' => 'boolean',
             'image' => 'nullable|image|mimes:jpg,jpeg,png,webp,gif|max:5120',
-            'image_secondary' => 'nullable|image|mimes:jpg,jpeg,png,webp,gif|max:5120',
         ]);
 
         $data = [
@@ -41,11 +40,11 @@ class ProductController extends Controller
         ];
 
         if ($request->hasFile('image')) {
+            if ($product->image_secondary) {
+                $uploader->delete($product->image_secondary);
+            }
             $data['image'] = $uploader->upload($request->file('image'), 'products', $product->image);
-        }
-
-        if ($request->hasFile('image_secondary')) {
-            $data['image_secondary'] = $uploader->upload($request->file('image_secondary'), 'products', $product->image_secondary);
+            $data['image_secondary'] = null;
         }
 
         $product->update($data);

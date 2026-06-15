@@ -44,6 +44,11 @@ class CheckoutController extends Controller
             'zip' => 'required|string|max:20',
             'country' => 'required|string|max:100',
             'notes' => 'nullable|string|max:500',
+            'agree_privacy' => 'accepted',
+            'agree_terms' => 'accepted',
+        ], [
+            'agree_privacy.accepted' => 'You must agree to the Privacy Policy to place your order.',
+            'agree_terms.accepted' => 'You must agree to the Terms & Conditions to place your order.',
         ]);
 
         $subtotal = $cart->subtotal();

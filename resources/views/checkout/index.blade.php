@@ -38,7 +38,9 @@
                             </div>
                         </div>
                         <button type="submit" class="btn-primary w-full mt-6 sm:mt-8 hidden lg:flex">Place Order</button>
-                        <p class="text-xs text-muted text-center mt-3 sm:mt-4 hidden lg:block">Payment collected upon fulfillment.</p>
+                        <p class="text-xs text-muted text-center mt-3 sm:mt-4 hidden lg:block">
+                            Payment collected upon fulfillment.
+                        </p>
                     </div>
                 </div>
 
@@ -100,6 +102,8 @@
                             </div>
                         </div>
                     </div>
+
+                    @include('checkout.partials.legal-agreement')
 
                     {{-- Mobile submit button --}}
                     <div class="lg:hidden">

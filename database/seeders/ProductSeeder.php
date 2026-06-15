@@ -16,8 +16,8 @@ class ProductSeeder extends Seeder
                 'short_description' => 'Premium USA-Made Collagen Peptides with 10,000mg Type I Collagen, Hyaluronic Acid, Vitamin C, Biotin, Zinc & Selenium.',
                 'description' => 'Designed for those who want to support healthy skin, hair, nails, and overall beauty from within. Our comprehensive formula combines Type I Collagen with Hyaluronic Acid, Vitamin C, Biotin, Zinc, and Selenium for a complete beauty and wellness routine.',
                 'price' => 59.99,
-                'image' => 'images/product-hero.png',
-                'image_secondary' => 'images/product-lifestyle.png',
+                'image' => 'images/product-lifestyle.png',
+                'image_secondary' => null,
                 'stock' => 500,
                 'features' => [
                     '10,000mg Type I Collagen',

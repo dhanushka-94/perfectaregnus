@@ -29,11 +29,7 @@
             <div class="order-1 lg:order-2 flex justify-center px-4 sm:px-0">
                 <div class="relative w-full max-w-[280px] sm:max-w-md lg:max-w-lg xl:max-w-xl">
                     @if($product)
-                        <div class="card-elevated overflow-hidden rounded-sm">
-                            <div class="product-image-wrap product-image-wrap--hero aspect-[3/4] sm:aspect-square">
-                                <img src="{{ $product->image_url }}" alt="{{ $product->name }}" class="relative w-full h-full object-contain" width="600" height="600">
-                            </div>
-                        </div>
+                        <img src="{{ $product->image_url }}" alt="{{ $product->name }}" class="w-full h-auto object-contain" width="600" height="600">
                     @endif
                 </div>
             </div>
@@ -44,10 +40,13 @@
 {{-- Why Perfecta Regen --}}
 <section id="why-perfecta" class="section-padding bg-white scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14 lg:mb-16">
+        <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14 lg:mb-16">
             <p class="section-label mb-2 sm:mb-3">Why Perfecta Regen</p>
             <h2 class="font-display heading-section font-semibold text-ink mb-3 sm:mb-4">Premium Ingredients. Premium Results.</h2>
-            <div class="gold-line-wide mx-auto"></div>
+            <div class="gold-line-wide mx-auto mb-4 sm:mb-6"></div>
+            <p class="text-muted text-sm sm:text-base leading-relaxed px-2 sm:px-0">
+                Selectively formulated by nutrition experts using scientific evidence and carefully blended in a certified USA laboratory to ensure premium quality, purity, and consistency. Manufactured in an FDA-registered facility that follows Good Manufacturing Practices (GMP) standards.
+            </p>
         </div>
         <div class="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5 max-w-4xl mx-auto">
             @foreach([
@@ -70,7 +69,7 @@
 </section>
 
 {{-- Why Collagen --}}
-<section class="section-padding">
+<section id="why-collagen" class="section-padding scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-center">
             <div class="text-center lg:text-left">
@@ -86,8 +85,8 @@
             </div>
             <div class="card-elevated card-interactive p-6 sm:p-8 lg:p-10">
                 <h3 class="font-display text-lg sm:text-xl font-semibold text-ink mb-5 sm:mb-6 text-center lg:text-left">Supports</h3>
-                <div class="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
-                    @foreach(['Skin', 'Hair', 'Nails', 'Joints'] as $benefit)
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+                    @foreach(['Skin', 'Hair', 'Nails', 'Joints', 'Brain'] as $benefit)
                         <div class="text-center p-4 sm:p-5 border border-gold/10 bg-cream/50 transition-colors hover:border-gold/25 hover:bg-white">
                             <p class="font-display text-base sm:text-lg text-gold-dark">{{ $benefit }}</p>
                         </div>
@@ -99,7 +98,7 @@
 </section>
 
 {{-- Why American-Made --}}
-<section class="section-padding bg-ink text-white">
+<section id="american-made" class="section-padding bg-ink text-white scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-start">
             <div class="text-center lg:text-left">
@@ -185,7 +184,7 @@
 </section>
 
 {{-- Who Is It For --}}
-<section class="section-padding bg-white">
+<section id="who-is-it-for" class="section-padding bg-white scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-center">
             <div class="order-2 lg:order-1 text-center lg:text-left">
@@ -210,12 +209,7 @@
             </div>
             @if($product)
                 <div class="order-1 lg:order-2 flex justify-center">
-                    <div class="card-elevated p-4 sm:p-6 lg:p-8 w-full max-w-xs sm:max-w-sm overflow-hidden">
-                        <img src="{{ $product->image_secondary_url ?? $product->image_url }}" alt="{{ $product->name }} — lifestyle" class="w-full object-contain rounded-sm" width="400" height="400">
-                        @if($product->image_secondary)
-                            <p class="text-xs text-muted text-center mt-3 sm:mt-4">Premium packaging &amp; presentation</p>
-                        @endif
-                    </div>
+                    <img src="{{ $product->image_url }}" alt="{{ $product->name }}" class="w-full max-w-xs sm:max-w-sm object-contain" width="400" height="400">
                 </div>
             @endif
         </div>
@@ -223,7 +217,7 @@
 </section>
 
 {{-- Trust --}}
-<section class="section-padding bg-ink text-white">
+<section id="trust" class="section-padding bg-ink text-white scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14 lg:mb-16">
             <p class="section-label text-gold mb-2 sm:mb-3">Trust</p>
