@@ -110,6 +110,10 @@
                 <p><strong>Perfecta Regen</strong></p>
                 <p>743 California Ave.<br>Simi Valley, CA 93065<br>United States</p>
                 <p>Email: <a href="mailto:hello@perfectaregen.com">hello@perfectaregen.com</a></p>
+                <p class="mt-4"><strong>Available at SB³</strong> — Center for Soul Brain Body and Beauty</p>
+                <p>Crescat Boulevard, Colombo 03</p>
+                <p>Phone: <a href="tel:+94765656320">076 56 56 320</a></p>
+                <p>Web: <a href="https://www.sb3colombo.com" target="_blank" rel="noopener noreferrer">sb3colombo.com</a> · <a href="https://sb3online.com" target="_blank" rel="noopener noreferrer">sb3online.com</a></p>
             </div>
         </div>
 

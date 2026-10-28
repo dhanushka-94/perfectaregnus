@@ -38,7 +38,7 @@
                         <td class="text-muted">{{ $customer->email }}</td>
                         <td class="text-muted">{{ $customer->phone ?? '—' }}</td>
                         <td>{{ $customer->order_count }}</td>
-                        <td>${{ number_format($customer->total_spent, 2) }}</td>
+                        <td>{{ money($customer->total_spent) }}</td>
                         <td class="text-muted whitespace-nowrap">{{ \Carbon\Carbon::parse($customer->last_order_at)->format('M j, Y') }}</td>
                         <td>
                             <a href="{{ route('admin.customers.show', $customer->email) }}" class="text-sm text-gold-dark hover:text-ink">View</a>

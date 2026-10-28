@@ -35,7 +35,7 @@
         </div>
         <div class="admin-stat-card">
             <p class="text-xs text-muted uppercase tracking-wider mb-1">Total Spent</p>
-            <p class="font-display text-2xl font-semibold text-ink">${{ number_format($customer->total_spent, 2) }}</p>
+            <p class="font-display text-2xl font-semibold text-ink">{{ money($customer->total_spent) }}</p>
         </div>
     </div>
 </div>
@@ -59,7 +59,7 @@
                 @foreach($orders as $order)
                     <tr>
                         <td class="font-medium">{{ $order->order_number }}</td>
-                        <td>${{ number_format($order->total, 2) }}</td>
+                        <td>{{ money($order->total) }}</td>
                         <td><span class="status-badge status-{{ $order->status }}">{{ $order->status }}</span></td>
                         <td class="text-muted">{{ $order->created_at->format('M j, Y') }}</td>
                         <td><a href="{{ route('admin.orders.show', $order) }}" class="text-sm text-gold-dark hover:text-ink">View</a></td>

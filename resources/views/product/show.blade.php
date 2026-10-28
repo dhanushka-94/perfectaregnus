@@ -12,12 +12,19 @@
         </nav>
 
         <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20">
-            <div class="flex justify-center items-start lg:sticky lg:top-28 lg:self-start w-full max-w-lg">
+            <div class="flex flex-col gap-4 justify-center items-start lg:sticky lg:top-28 lg:self-start w-full max-w-lg">
                 <img src="{{ $product->image_url }}"
                     alt="{{ $product->name }}"
                     class="w-full object-contain"
                     width="500"
                     height="500">
+                @if($product->image_secondary_url)
+                    <img src="{{ $product->image_secondary_url }}"
+                        alt="{{ $product->name }} supplement facts"
+                        class="w-full object-contain rounded-sm border border-gold/10"
+                        width="500"
+                        height="500">
+                @endif
             </div>
 
             <div>
@@ -25,7 +32,7 @@
                 <h1 class="font-display heading-section font-semibold text-ink mb-3 sm:mb-4">{{ $product->name }}</h1>
                 <div class="gold-line mb-4 sm:mb-6"></div>
                 <p class="text-muted text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">{{ $product->short_description }}</p>
-                <p class="font-display text-2xl sm:text-3xl text-gold-dark font-semibold mb-1">${{ number_format($product->price, 2) }}</p>
+                <p class="font-display text-2xl sm:text-3xl text-gold-dark font-semibold mb-1">{{ money($product->price) }}</p>
                 <p class="text-xs sm:text-sm text-muted mb-6 sm:mb-8">30 Servings &middot; Net W. 321g (11.32oz)</p>
 
                 <div id="product-actions">
@@ -81,18 +88,20 @@
                         </tr>
                     </thead>
                     <tbody class="text-muted">
-                        <tr class="border-b border-gold/10"><td class="py-2 sm:py-3 pr-4">Vitamin C (Ascorbic Acid)</td><td class="text-right py-2 sm:py-3 whitespace-nowrap">200 mg</td><td class="text-right py-2 sm:py-3 pl-4">200%</td></tr>
+                        <tr class="border-b border-gold/10"><td class="py-2 sm:py-3 pr-4">Vitamin C (as ascorbic acid)</td><td class="text-right py-2 sm:py-3 whitespace-nowrap">200 mg</td><td class="text-right py-2 sm:py-3 pl-4">222%</td></tr>
                         <tr class="border-b border-gold/10"><td class="py-2 sm:py-3 pr-4">Biotin</td><td class="text-right py-2 sm:py-3 whitespace-nowrap">300 mcg</td><td class="text-right py-2 sm:py-3 pl-4">1000%</td></tr>
-                        <tr class="border-b border-gold/10"><td class="py-2 sm:py-3 pr-4">Zinc (Zinc Citrate)</td><td class="text-right py-2 sm:py-3 whitespace-nowrap">10 mg</td><td class="text-right py-2 sm:py-3 pl-4">91%</td></tr>
-                        <tr class="border-b border-gold/10"><td class="py-2 sm:py-3 pr-4">Selenium (Selenomethionine)</td><td class="text-right py-2 sm:py-3 whitespace-nowrap">100 mcg</td><td class="text-right py-2 sm:py-3 pl-4">182%</td></tr>
-                        <tr class="border-b border-gold/10"><td class="py-2 sm:py-3 pr-4">Chicken Collagen Type I</td><td class="text-right py-2 sm:py-3 whitespace-nowrap">10,000 mg</td><td class="text-right py-2 sm:py-3 pl-4">—</td></tr>
-                        <tr><td class="py-2 sm:py-3 pr-4">Hyaluronic Acid</td><td class="text-right py-2 sm:py-3 whitespace-nowrap">150 mg</td><td class="text-right py-2 sm:py-3 pl-4">—</td></tr>
+                        <tr class="border-b border-gold/10"><td class="py-2 sm:py-3 pr-4">Zinc (as zinc citrate)</td><td class="text-right py-2 sm:py-3 whitespace-nowrap">10 mg</td><td class="text-right py-2 sm:py-3 pl-4">91%</td></tr>
+                        <tr class="border-b border-gold/10"><td class="py-2 sm:py-3 pr-4">Selenium (as selenomethionine)</td><td class="text-right py-2 sm:py-3 whitespace-nowrap">100 mcg</td><td class="text-right py-2 sm:py-3 pl-4">182%</td></tr>
+                        <tr class="border-b border-gold/10"><td class="py-2 sm:py-3 pr-4">Chicken collagen peptides (Types I &amp; III)</td><td class="text-right py-2 sm:py-3 whitespace-nowrap">10,000 mg</td><td class="text-right py-2 sm:py-3 pl-4">†</td></tr>
+                        <tr><td class="py-2 sm:py-3 pr-4">Hyaluronic acid (as sodium hyaluronate)</td><td class="text-right py-2 sm:py-3 whitespace-nowrap">150 mg</td><td class="text-right py-2 sm:py-3 pl-4">†</td></tr>
                     </tbody>
                 </table>
             </div>
             <p class="table-scroll-hint">Swipe to see full table</p>
-            <p class="text-xs text-muted mt-4 sm:mt-6">Serving Size: 10.7g &middot; Servings Per Container: 30</p>
-            <p class="text-xs text-muted mt-2">Suggested Use: Blend 2 scoops with 10oz of water or as directed by a health professional.</p>
+            <p class="text-xs text-muted mt-4 sm:mt-6">Serving Size: 10.7 g &middot; Servings Per Container: 30 &middot; Net Wt. 321 g (11.32 oz)</p>
+            <p class="text-xs text-muted mt-2">Suggested Use: Blend 2 scoops with 10 oz (approximately 300 mL) of water, or as directed by a health professional.</p>
+            <p class="text-xs text-muted mt-2"><strong class="text-ink">Other Ingredients:</strong> None. <strong class="text-ink">Contains:</strong> Chicken (poultry).</p>
+            <p class="text-xs text-muted mt-2">† Daily Value not established. Manufactured for Perfecta Regen, 743 California Ave., Simi Valley, CA 93065, USA. Made in USA.</p>
         </div>
     </div>
 </section>
@@ -101,7 +110,7 @@
 <div id="mobile-buy-bar" class="mobile-buy-bar lg:hidden">
     <div class="flex items-center gap-3 max-w-7xl mx-auto">
         <div class="flex-1 min-w-0">
-            <p class="font-display text-base font-semibold text-ink truncate">${{ number_format($product->price, 2) }}</p>
+            <p class="font-display text-base font-semibold text-ink truncate">{{ money($product->price) }}</p>
             <p class="text-xs text-muted truncate">30 Servings</p>
         </div>
         <form action="{{ route('product.add-to-cart', $product->slug) }}" method="POST" class="flex-shrink-0">

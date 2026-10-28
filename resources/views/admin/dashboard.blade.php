@@ -15,7 +15,7 @@
     </div>
     <div class="admin-stat-card col-span-2 lg:col-span-1">
         <p class="text-xs text-muted uppercase tracking-wider mb-1">Revenue</p>
-        <p class="font-display text-2xl sm:text-3xl font-semibold text-ink">${{ number_format($stats['total_revenue'], 2) }}</p>
+        <p class="font-display text-2xl sm:text-3xl font-semibold text-ink">{{ money($stats['total_revenue']) }}</p>
     </div>
     <div class="admin-stat-card col-span-1">
         <p class="text-xs text-muted uppercase tracking-wider mb-1">Customers</p>
@@ -51,7 +51,7 @@
                                 <a href="{{ route('admin.orders.show', $order) }}" class="text-ink hover:text-gold-dark font-medium">{{ $order->order_number }}</a>
                             </td>
                             <td class="text-muted">{{ $order->customer_name }}</td>
-                            <td>${{ number_format($order->total, 2) }}</td>
+                            <td>{{ money($order->total) }}</td>
                             <td><span class="status-badge status-{{ $order->status }}">{{ $order->status }}</span></td>
                             <td class="text-muted whitespace-nowrap">{{ $order->created_at->format('M j, Y') }}</td>
                         </tr>
@@ -71,7 +71,7 @@
             @forelse($monthlyRevenue as $row)
                 <div class="flex justify-between items-center text-sm">
                     <span class="text-muted">{{ \Carbon\Carbon::createFromFormat('Y-m', $row->month)->format('M Y') }}</span>
-                    <span class="font-medium text-ink">${{ number_format($row->revenue, 2) }}</span>
+                    <span class="font-medium text-ink">{{ money($row->revenue) }}</span>
                 </div>
             @empty
                 <p class="text-sm text-muted">No revenue data yet.</p>

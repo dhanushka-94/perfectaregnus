@@ -19,6 +19,13 @@ if (! function_exists('image_url')) {
     }
 }
 
+if (! function_exists('money')) {
+    function money(float|int|string|null $amount, int $decimals = 2): string
+    {
+        return 'Rs ' . number_format((float) $amount, $decimals);
+    }
+}
+
 if (! function_exists('avatar_initials')) {
     function avatar_initials(?string $name): string
     {

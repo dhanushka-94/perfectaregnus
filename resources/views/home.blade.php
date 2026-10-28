@@ -8,13 +8,13 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-24 xl:py-28 relative">
         <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-center">
             <div class="order-2 lg:order-1 text-center lg:text-left">
-                <p class="section-label mb-3 sm:mb-4">Premium USA-Made Collagen Peptides</p>
+                <p class="section-label mb-3 sm:mb-4">Premium USA-Made Type I &amp; III Collagen Peptides</p>
                 <h1 class="font-display heading-hero font-semibold text-ink mb-4 sm:mb-6">
                     Beauty Starts<br><span class="text-gold-dark italic">Within</span>
                 </h1>
                 <div class="gold-line mb-5 sm:mb-6 mx-auto lg:mx-0"></div>
                 <p class="text-muted text-base sm:text-lg leading-relaxed mb-3 sm:mb-4 max-w-lg mx-auto lg:mx-0">
-                    Featuring 10,000mg Type I Collagen, Hyaluronic Acid, Vitamin C, Biotin, Zinc &amp; Selenium.
+                    Featuring 10,000mg Type I &amp; III Collagen, Hyaluronic Acid, Vitamin C, Biotin, Zinc &amp; Selenium.
                 </p>
                 <p class="text-muted text-sm sm:text-base leading-relaxed mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0">
                     Designed for those who want to support healthy skin, hair, nails, and overall beauty from within.
@@ -50,7 +50,7 @@
         </div>
         <div class="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5 max-w-4xl mx-auto">
             @foreach([
-                '10,000mg Type I Collagen',
+                '10,000mg Type I & III Collagen',
                 'Hyaluronic Acid',
                 'Vitamin C',
                 'Biotin',
@@ -58,7 +58,7 @@
                 'Selenium',
                 'Manufactured in USA',
                 'Easy-to-Mix Powder',
-                'No Added Sugar',
+                'No Other Ingredients',
             ] as $feature)
                 <div class="feature-card flex items-center text-ink rounded-sm">
                     <span class="check-item text-sm sm:text-base">{{ $feature }}</span>
@@ -141,9 +141,9 @@
         </div>
         <div class="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 max-w-4xl mx-auto">
             @foreach([
-                ['Type I Collagen', '10,000mg per serving'],
+                ['Type I & III Collagen', '10,000mg per serving'],
                 ['Hyaluronic Acid', '150mg per serving'],
-                ['Vitamin C', '200mg (200% DV)'],
+                ['Vitamin C', '200mg (222% DV)'],
                 ['Biotin', '300mcg (1000% DV)'],
                 ['Zinc', '10mg (91% DV)'],
                 ['Selenium', '100mcg (182% DV)'],
@@ -167,9 +167,9 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-4xl mx-auto">
             @foreach([
-                ['01', 'Add 2 scoops to 10oz of water.'],
+                ['01', 'Blend 2 scoops with 10 oz (≈300 mL) of water.'],
                 ['02', 'Stir or shake thoroughly.'],
-                ['03', 'Enjoy once daily.'],
+                ['03', 'Enjoy once daily, or as directed by a health professional.'],
             ] as [$step, $text])
                 <div class="card-elevated card-interactive step-card p-6 sm:p-8 text-center">
                     <span class="font-display text-3xl sm:text-4xl text-gold/30 font-semibold">{{ $step }}</span>
@@ -209,7 +209,7 @@
             </div>
             @if($product)
                 <div class="order-1 lg:order-2 flex justify-center">
-                    <img src="{{ $product->image_url }}" alt="{{ $product->name }}" class="w-full max-w-xs sm:max-w-sm object-contain" width="400" height="400">
+                    <img src="{{ $product->image_secondary_url ?? $product->image_url }}" alt="{{ $product->name }} label" class="w-full max-w-xs sm:max-w-sm object-contain" width="400" height="400">
                 </div>
             @endif
         </div>
@@ -249,7 +249,7 @@
             <p class="section-label mb-2 sm:mb-3 relative">Start Your Routine</p>
             <h2 class="font-display heading-section font-semibold text-ink mb-3 sm:mb-4 relative">{{ $product->name }}</h2>
             <p class="text-muted text-sm sm:text-base mb-2 relative">30 Servings &middot; 321g (11.32oz)</p>
-            <p class="font-display text-2xl sm:text-3xl text-gold-dark font-semibold mb-6 sm:mb-8 relative">${{ number_format($product->price, 2) }}</p>
+            <p class="font-display text-2xl sm:text-3xl text-gold-dark font-semibold mb-6 sm:mb-8 relative">{{ money($product->price) }}</p>
             <a href="{{ route('product.show', $product->slug) }}" class="btn-primary relative max-w-xs mx-auto sm:max-w-none">Shop Now</a>
         </div>
     </div>

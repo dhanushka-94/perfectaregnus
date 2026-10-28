@@ -19,22 +19,22 @@
                             @foreach($items as $item)
                                 <div class="flex justify-between gap-4 text-xs sm:text-sm">
                                     <span class="text-muted flex-1 min-w-0">{{ $item['name'] }} &times; {{ $item['quantity'] }}</span>
-                                    <span class="text-ink flex-shrink-0">${{ number_format($item['price'] * $item['quantity'], 2) }}</span>
+                                    <span class="text-ink flex-shrink-0">{{ money($item['price'] * $item['quantity']) }}</span>
                                 </div>
                             @endforeach
                         </div>
                         <div class="border-t border-gold/10 pt-4 space-y-2 text-xs sm:text-sm">
                             <div class="flex justify-between">
                                 <span class="text-muted">Subtotal</span>
-                                <span>${{ number_format($subtotal, 2) }}</span>
+                                <span>{{ money($subtotal) }}</span>
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-muted">Shipping</span>
-                                <span>${{ number_format($shipping, 2) }}</span>
+                                <span>{{ money($shipping) }}</span>
                             </div>
                             <div class="flex justify-between font-display text-lg sm:text-xl font-semibold text-ink pt-2">
                                 <span>Total</span>
-                                <span>${{ number_format($total, 2) }}</span>
+                                <span>{{ money($total) }}</span>
                             </div>
                         </div>
                         <button type="submit" class="btn-primary w-full mt-6 sm:mt-8 hidden lg:flex">Place Order</button>
@@ -107,7 +107,7 @@
 
                     {{-- Mobile submit button --}}
                     <div class="lg:hidden">
-                        <button type="submit" class="btn-primary w-full">Place Order — ${{ number_format($total, 2) }}</button>
+                        <button type="submit" class="btn-primary w-full">Place Order — {{ money($total) }}</button>
                         <p class="text-xs text-muted text-center mt-3">Payment collected upon fulfillment.</p>
                     </div>
                 </div>

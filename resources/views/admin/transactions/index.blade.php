@@ -6,7 +6,7 @@
 @section('content')
 <div class="admin-stat-card mb-4 sm:mb-6 inline-block">
     <p class="text-xs text-muted uppercase tracking-wider mb-1">Total Revenue</p>
-    <p class="font-display text-2xl sm:text-3xl font-semibold text-ink">${{ number_format($totalRevenue, 2) }}</p>
+    <p class="font-display text-2xl sm:text-3xl font-semibold text-ink">{{ money($totalRevenue) }}</p>
 </div>
 
 <div class="admin-card mb-4 sm:mb-6 p-4 sm:p-5">
@@ -37,7 +37,7 @@
                             <div>{{ $order->customer_name }}</div>
                             <div class="text-xs text-muted">{{ $order->email }}</div>
                         </td>
-                        <td class="font-medium">${{ number_format($order->total, 2) }}</td>
+                        <td class="font-medium">{{ money($order->total) }}</td>
                         <td><span class="status-badge status-{{ $order->status }}">{{ $order->status }}</span></td>
                         <td class="text-muted whitespace-nowrap">{{ $order->created_at->format('M j, Y') }}</td>
                         <td>

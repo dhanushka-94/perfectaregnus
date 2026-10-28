@@ -27,17 +27,17 @@
                             <tr>
                                 <td>{{ $item->product_name }}</td>
                                 <td>{{ $item->quantity }}</td>
-                                <td>${{ number_format($item->unit_price, 2) }}</td>
-                                <td>${{ number_format($item->subtotal, 2) }}</td>
+                                <td>{{ money($item->unit_price) }}</td>
+                                <td>{{ money($item->subtotal) }}</td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
             <div class="mt-4 pt-4 border-t border-gold/10 space-y-2 text-sm">
-                <div class="flex justify-between"><span class="text-muted">Subtotal</span><span>${{ number_format($order->subtotal, 2) }}</span></div>
-                <div class="flex justify-between"><span class="text-muted">Shipping</span><span>${{ number_format($order->shipping, 2) }}</span></div>
-                <div class="flex justify-between font-semibold text-base"><span>Total</span><span>${{ number_format($order->total, 2) }}</span></div>
+                <div class="flex justify-between"><span class="text-muted">Subtotal</span><span>{{ money($order->subtotal) }}</span></div>
+                <div class="flex justify-between"><span class="text-muted">Shipping</span><span>{{ money($order->shipping) }}</span></div>
+                <div class="flex justify-between font-semibold text-base"><span>Total</span><span>{{ money($order->total) }}</span></div>
             </div>
         </div>
 

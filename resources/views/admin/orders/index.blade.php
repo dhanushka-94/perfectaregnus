@@ -37,7 +37,7 @@
                         <td class="font-medium">{{ $order->order_number }}</td>
                         <td>{{ $order->customer_name }}</td>
                         <td class="text-muted">{{ $order->email }}</td>
-                        <td>${{ number_format($order->total, 2) }}</td>
+                        <td>{{ money($order->total) }}</td>
                         <td><span class="status-badge status-{{ $order->status }}">{{ $order->status }}</span></td>
                         <td class="text-muted whitespace-nowrap">{{ $order->created_at->format('M j, Y g:i A') }}</td>
                         <td>

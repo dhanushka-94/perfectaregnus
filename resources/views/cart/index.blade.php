@@ -23,7 +23,7 @@
                             </div>
                             <div class="cart-item-details min-w-0">
                                 <h2 class="font-display text-base sm:text-lg font-semibold text-ink leading-snug">{{ $item['name'] }}</h2>
-                                <p class="text-gold-dark font-medium text-sm sm:text-base mt-1">${{ number_format($item['price'], 2) }} each</p>
+                                <p class="text-gold-dark font-medium text-sm sm:text-base mt-1">{{ money($item['price']) }} each</p>
                             </div>
                             <form action="{{ route('cart.update', $productId) }}" method="POST" class="cart-item-qty flex items-center gap-2 sm:gap-3">
                                 @csrf
@@ -35,7 +35,7 @@
                                 </div>
                                 <button type="submit" class="text-xs sm:text-sm text-muted hover:text-ink transition-colors whitespace-nowrap">Update</button>
                             </form>
-                            <p class="cart-item-price font-medium text-ink text-base sm:text-lg">${{ number_format($item['price'] * $item['quantity'], 2) }}</p>
+                            <p class="cart-item-price font-medium text-ink text-base sm:text-lg">{{ money($item['price'] * $item['quantity']) }}</p>
                             <form action="{{ route('cart.remove', $productId) }}" method="POST" class="cart-item-remove">
                                 @csrf
                                 @method('DELETE')
@@ -49,7 +49,7 @@
             <div class="mt-6 sm:mt-10 card-elevated p-5 sm:p-8">
                 <div class="flex justify-between items-center mb-4 sm:mb-6">
                     <span class="text-muted text-sm sm:text-base">Subtotal</span>
-                    <span class="font-display text-xl sm:text-2xl font-semibold text-ink">${{ number_format($subtotal, 2) }}</span>
+                    <span class="font-display text-xl sm:text-2xl font-semibold text-ink">{{ money($subtotal) }}</span>
                 </div>
                 <p class="text-xs sm:text-sm text-muted mb-5 sm:mb-6">Shipping calculated at checkout.</p>
                 <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">

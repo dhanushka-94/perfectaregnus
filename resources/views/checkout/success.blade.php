@@ -22,12 +22,12 @@
             @foreach($order->items as $item)
                 <div class="flex justify-between gap-4 text-xs sm:text-sm py-2.5 sm:py-3 border-b border-gold/10 last:border-0">
                     <span class="text-muted flex-1 min-w-0">{{ $item->product_name }} &times; {{ $item->quantity }}</span>
-                    <span class="text-ink flex-shrink-0">${{ number_format($item->subtotal, 2) }}</span>
+                    <span class="text-ink flex-shrink-0">{{ money($item->subtotal) }}</span>
                 </div>
             @endforeach
             <div class="flex justify-between font-medium text-ink text-sm sm:text-base pt-4 mt-2">
                 <span>Total</span>
-                <span class="font-display text-lg sm:text-xl">${{ number_format($order->total, 2) }}</span>
+                <span class="font-display text-lg sm:text-xl">{{ money($order->total) }}</span>
             </div>
         </div>
 
