@@ -22,7 +22,7 @@ if (! function_exists('image_url')) {
 if (! function_exists('money')) {
     function money(float|int|string|null $amount, int $decimals = 2): string
     {
-        return 'Rs ' . number_format((float) $amount, $decimals);
+        return '$' . number_format((float) $amount, $decimals);
     }
 }
 
